@@ -201,7 +201,7 @@
       <tr><td class="k">Flip</td><td>left-right 50 %, <span class="no">no</span> up-down</td><td>mirrored objects stay realistic</td></tr>
       <tr><td class="k">Colour</td><td>YOLOv5 default</td><td>lighting changes; hue almost unchanged</td></tr>
       <tr><td class="k">Mosaic</td><td class="yes">on</td><td>4 images → 1: small, crowded objects</td></tr>
-      <tr><td class="k">Model</td><td>YOLOv5s, COCO-pretrained</td><td>taught in the lecture; transfer learning</td></tr>
+      <tr><td class="k">Model</td><td>YOLOv5s, pretrained</td><td>already knows edges and shapes → learns well from ≈ 10k images, trains faster</td></tr>
       <tr><td class="k">Training</td><td>70 epochs, batch 16</td><td>enough for a pretrained model; fits GPU</td></tr>
       <tr><td class="k">Early stop</td><td>patience 15 → <code>best.pt</code></td><td>avoid overfitting; keep the best epoch</td></tr>
       <tr><td class="k">Seed</td><td>42</td><td>reproducible</td></tr>
@@ -228,7 +228,7 @@
       <button class="chip f" data-k="imb">Imbalanced classes<small>biodegradable 61 %, paper 6 %</small></button>
       <button class="chip f" data-k="crowd">Crowded scenes<small>≈ 7 objects per image, many small</small></button>
       <button class="chip f" data-k="col">Colour separates materials<small>cardboard, paper, glass</small></button>
-      <button class="chip f" data-k="small">Only ≈ 10k images<small>small for training from scratch</small></button>
+      <button class="chip f" data-k="small">≈ 10k images<small>10,464 images</small></button>
       <button class="chip f" data-k="noise">Label noise<small>17 zero-size boxes</small></button>
     </div>
     <svg id="links" aria-hidden="true"></svg>
@@ -239,7 +239,7 @@
       <div class="chip dec" data-k="crowd">Image size 640</div>
       <div class="chip dec" data-k="crowd">Mosaic augmentation</div>
       <div class="chip dec" data-k="col">Keep colour, no greyscale</div>
-      <div class="chip dec" data-k="small">COCO-pretrained YOLOv5s</div>
+      <div class="chip dec" data-k="small">YOLOv5s</div>
       <div class="chip dec" data-k="noise">Reported, kept for training</div>
     </div>
   </div>
@@ -248,7 +248,8 @@
 <!-- T2 -->
 <section class="slide" data-fit="1">
   <div class="kick">Assignment 1 · Task 2</div>
-  <h2>Model training &amp; evaluation</h2>
+  <h2>Model training &amp; evaluation: YOLOv5s</h2>
+  <div class="hint" style="margin:-4px 0 12px">One-stage detector · pretrained, fine-tuned on our 7,322 training images · 640 px · batch 16 · max 70 epochs, early stopping (patience 15) · best.pt = best validation mAP</div>
   <div class="two2">
     <div class="panel">
       <h4>Test set (1,574 images, used once)</h4>
